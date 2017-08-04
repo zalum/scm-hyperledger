@@ -8,20 +8,19 @@ asset Article identified by articleId {
   o String articleId  
   o Integer price
   o Integer quantity
-  --> Supplier supplier
-  --> Purchaser purchaser
+  --> BusinessPartner owner
 }
 
-transaction PurchaseOrder {
+transaction TradePurchaseOrder {
   --> Article article
-  --> Supplier supplier
-  --> Purchaser purchaser
+  --> BusinessPartner newOwner
 }
 
-participant Purchaser identified by purchaserId{
-	o String purchaserId
+participant BusinessPartner identified by businessPartnerId{
+  o String businessPartnerId
+  o PartnerType type 
 }
 
-participant Supplier identified by supplierId{
-  o String supplierId
+concept PartnerType {
+	o String type
 }
