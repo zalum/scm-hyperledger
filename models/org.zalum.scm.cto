@@ -1,26 +1,69 @@
-/**
- * scm
- */
-
 namespace org.zalum.scm
 
-asset Article identified by articleId {
-  o String articleId  
+asset Article identified by articleId{
+  o String articleId
   o Integer price
+}
+
+asset PurchaseOrder identified by purchaseOrderId{
+  o String purchaseOrderId
   o Integer quantity
+  --> Article article
+  --> Purchaser purchaser
+  --> Supplier supplier
+}
+
+asset Stock identified by stockId{
+  o String stockId  
+  o Integer quantity
+  --> Article article
+  --> BusinessPartner businessPartner
+}
+
+asset Transport identified by transportId{
+  o String transportId  
+  o Integer quantity
+  o String location
+  --> Article article
   --> BusinessPartner owner
 }
 
-transaction TradePurchaseOrder {
-  --> Article article
-  --> BusinessPartner newOwner
-}
 
-participant BusinessPartner identified by businessPartnerId{
+abstract participant BusinessPartner identified by businessPartnerId {
   o String businessPartnerId
-  o PartnerType type 
 }
 
-concept PartnerType {
-	o String type
+participant Supplier extends BusinessPartner{
+}
+
+participant Purchaser extends BusinessPartner{}
+
+participant Carrier extends BusinessPartner{}
+
+transaction RequestPurchaseOrder{
+  o Integer quantity  
+  o String purchaseOrderId
+  --> Article article
+  --> Supplier supplier
+  --> Purchaser purchaser  
+}
+
+transaction ShipTransport {
+  o String transportId
+  --> PurchaseOrder purchaseOrder  
+  --> Stock stock
+}
+
+transaction TransferTransportToCarrier {
+  --> Transport transport
+  --> Carrier carrier
+}
+
+transaction LocateTransport {
+  o String location
+  --> Transport Transport
+}
+
+transaction TransferTransportToPurchaser {
+  --> Transport Transport
 }

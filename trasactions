@@ -1,0 +1,28 @@
+{
+  "$class": "org.zalum.scm.RequestPurchaseOrder",
+  "quantity": 50,
+  "purchaseOrderId": "1",
+  "article": "resource:org.zalum.scm.Article#articleId:3098",
+  "supplier": "resource:org.zalum.scm.Supplier#businessPartnerId:1",
+  "purchaser": "resource:org.zalum.scm.Purchaser#businessPartnerId:2"
+}
+
+{
+  "$class": "org.zalum.scm.ShipTransport",
+  "transportId": "t1",
+  "stock": "resource:org.zalum.scm.Stock#stockId:1",
+  "purchaseOrder": "resource:org.zalum.scm.PurchaseOrder#1"
+}
+
+{
+  "$class": "org.zalum.scm.TransferTransportToCarrier",
+  "transport": "resource:org.zalum.scm.Transport#t1",
+  "carrier": "resource:org.zalum.scm.Carrier#businessPartnerId:3"
+}
+
+{
+  "$class": "org.zalum.scm.LocateTransport",
+  "location": "Hong kong",
+  "Transport": "resource:org.zalum.scm.Transport#t1"
+}
+
