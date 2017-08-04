@@ -1,0 +1,27 @@
+/**
+ * scm
+ */
+
+namespace org.zalum.scm
+
+asset Article identified by articleId {
+  o String articleId  
+  o Integer price
+  o Integer quantity
+  --> Supplier supplier
+  --> Purchaser purchaser
+}
+
+transaction PurchaseOrder {
+  --> Article article
+  --> Supplier supplier
+  --> Purchaser purchaser
+}
+
+participant Purchaser identified by purchaserId{
+	o String purchaserId
+}
+
+participant Supplier identified by supplierId{
+  o String supplierId
+}
