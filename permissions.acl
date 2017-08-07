@@ -1,0 +1,32 @@
+rule AllAccess {
+  description: "AllAccess - grant everything to everybody"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+
+rule CarrierNoAccessToStock {
+     description: "Limited access to carrier"
+     participant: "org.zalum.scm.Carrier"
+     operation: ALL
+     resource: "org.zalum.scm.Stock"
+     action: DENY
+ }
+
+rule CarrierNoAccessToOtherTransports {
+     description: "Limited access to carrier"
+     participant(c): "org.zalum.scm.Carrier"
+     operation: ALL
+     resource(t): "org.zalum.scm.Transport"
+   	 condition: (t.owner.getIdentifier() != c.getIdentifier())
+     action: DENY
+ }
+
+rule AllAccessBusinessNetwork {
+  description: "AllAccess - grant everything to everybody"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.zalum.scm.**"
+  action: ALLOW
+}

@@ -26,6 +26,7 @@ asset Transport identified by transportId{
   o String location
   --> Article article
   --> BusinessPartner owner
+  --> PurchaseOrder purchaseOrder
 }
 
 
@@ -48,22 +49,25 @@ transaction RequestPurchaseOrder{
   --> Purchaser purchaser  
 }
 
-transaction ShipTransport {
+transaction CreateTransport {
   o String transportId
+  o String location
   --> PurchaseOrder purchaseOrder  
   --> Stock stock
 }
 
 transaction TransferTransportToCarrier {
-  --> Transport transport
+  o String location
+  --> Transport transport  
   --> Carrier carrier
 }
 
 transaction LocateTransport {
   o String location
-  --> Transport Transport
+  --> Transport transport
 }
 
 transaction TransferTransportToPurchaser {
-  --> Transport Transport
+  --> Transport transport
+  --> Stock stock
 }
