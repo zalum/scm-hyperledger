@@ -1,6 +1,6 @@
 ## Hyperledger SCM Model
-A simple scm model in hyperladger fabric compose.
-The model is played at the moment in the playground
+A simple scm model in hyperladger fabric compose. It models the relations between purchasers, suppliers and carriers in a general scm network.
+The model is played at the moment in the playground.
 
 ### Intro videos
 Blockchain The slowest database in the world

@@ -2,7 +2,7 @@
   "$class": "org.zalum.scm.RequestPurchaseOrder",
   "quantity": 50,
   "purchaseOrderId": "1",
-  "article": "resource:org.zalum.scm.Article#articleId:3098",
+  "article": "resource:org.zalum.scm.Article#articleId:1",
   "supplier": "resource:org.zalum.scm.Supplier#businessPartnerId:1",
   "purchaser": "resource:org.zalum.scm.Purchaser#businessPartnerId:2"
 }
@@ -25,4 +25,3 @@
   "location": "Hong kong",
   "Transport": "resource:org.zalum.scm.Transport#t1"
 }
-

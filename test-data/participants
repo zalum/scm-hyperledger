@@ -1,0 +1,22 @@
+#carriers
+{
+  "$class": "org.zalum.scm.Carrier",
+  "businessPartnerId": "businessPartnerId:3"
+}
+
+{
+  "$class": "org.zalum.scm.Carrier",
+  "businessPartnerId": "businessPartnerId:4"
+}
+
+#purchaser
+{
+  "$class": "org.zalum.scm.Purchaser",
+  "businessPartnerId": "businessPartnerId:2"
+}
+
+#supplier
+{
+  "$class": "org.zalum.scm.Supplier",
+  "businessPartnerId": "businessPartnerId:1"
+}
